@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "articles#index"
+  root "recipes#index"
 
   resources :users do
     resources :recipes
@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       resources :recipe_foods
     end
   end
+
+  resources :recipes
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
