@@ -11,7 +11,7 @@ class FoodsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
   end
-  
+
   # GET /foods/new
   def new
     @user = User.find(params[:user_id])
