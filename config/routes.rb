@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "recipes#index"
+  root "recipes#public"
 
   resources :users do
     resources :recipes
