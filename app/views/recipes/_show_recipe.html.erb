@@ -1,0 +1,13 @@
+<div class="container">
+    <h5>Recipe #<%= @recipe.id %>: <%= @recipe.name %> </h5>
+      <div>
+        <div class="d-flex">
+            <p class="">Preparation time: <%= @recipe.preparation_time %></p>
+            <p class="">Public: <%= @recipe.public %></p>
+        </div>
+        <div class="d-flex">
+            <%= button_to "Delete this recipe", user_recipe_path(@user, @recipe), method: :delete, class: "btn btn-danger" %>
+            <%= link_to "View this recipe", user_recipe_path(@user, @recipe), class: "btn btn-primary" %>
+        </div>
+      </div>
+</div>
