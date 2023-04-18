@@ -4,13 +4,17 @@ class FoodsController < ApplicationController
   # GET /foods or /foods.json
   def index
     @foods = Food.all
+    @user = User.find(params[:user_id])
   end
 
   # GET /foods/1 or /foods/1.json
-  def show; end
+  def show
+    @user = User.find(params[:user_id])
+  end
 
   # GET /foods/new
   def new
+    @user = User.find(params[:user_id])
     @food = Food.new
   end
 
