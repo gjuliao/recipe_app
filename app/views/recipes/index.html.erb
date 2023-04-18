@@ -6,7 +6,7 @@
   <% @recipes.each do |recipe| %>
     <%= render recipe %>
     <p>
-      <%= link_to "Show this recipe", root_path %>
+      <%= link_to "Show this recipe", user_recipe_path(@user, recipe) %>
     </p>
   <% end %>
 </div>
