@@ -3,13 +3,21 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :recipes
+    get 'shoping-list', to: 'foods#shoping_list'
     resources :foods do
       resources :recipe_foods
     end
   end
+  
+  get 'public-recipes', to: 'recipes#public'
 
-  resources :recipes
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # resources: user do
+# 	resources: foods
+#   get "#{users_foods_path}/shoping-list", to: foods#shoping_list
+# 	resources: recipies
+	
+# end
+# get “/public-recipies”, to: “recipies#public”
 
-  # Defines the root path route ("/")
+# root: to 'recipies#public'
 end
