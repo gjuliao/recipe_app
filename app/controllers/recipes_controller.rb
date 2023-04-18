@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
   # GET /recipes or /recipes.json
   def index
     @recipes = Recipe.all
+    @user = User.find(params[:user_id])
   end
 
   # GET /recipes/1 or /recipes/1.json
@@ -12,6 +13,10 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+  end
+
+  def public
+    @recipes = Recipe.where(public: true)
   end
 
   # GET /recipes/1/edit
