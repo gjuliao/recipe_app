@@ -1,7 +1,7 @@
 <div id="<%= dom_id recipe %>">
     <div class="row row-cols-2 mt-5">
       <div>
-        <h5 class=""><%= recipe.name %></h5>
+        <h5 class="">Recipe #<%= recipe.id %>: <%= recipe.name %> </h5>
         <%= link_to "Show this recipe", user_recipe_path(@user, recipe), class: "btn btn-primary" %>
       </div>
       <div class="pt-4">
