@@ -4,12 +4,13 @@
         <div class="d-flex justify-content-between">
             <h5 class="">Preparation time: <%= @recipe.preparation_time %></h5>
             <% if can? :edit, @recipe %>
-                <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
-                <label class="form-check-label" for="flexSwitchCheckChecked">
-                    Public <%= @recipe.public %>
-                </label>
-                </div>
+              <div class="form-check form-switch">
+                <%= form_with(model: @recipe, url: user_recipe_path(@recipe), method: :patch, id: 'recipe-form') do |form| %>
+                    <%= form.check_box :public, {class: 'toggle-switch form-check-input', id: 'public-toggle', onchange: 'submit()'}%>
+                    <%= form.label :public, class: 'toggle-switch-label form-check-label', for: 'public-toggle' %>
+                    <%= form.submit 'Update Recipe', id: 'submit-button', style: 'display: none;' %>
+                <% end %>
+              </div>
             <% end %>
         </div>
         <div class="mt-5">
