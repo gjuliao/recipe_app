@@ -9,7 +9,8 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1 or /recipes/1.json
   def show
-    @user = User.find(params[:user_id])
+    @user = User.first
+    @recipe = Recipe.find(params[:id])
   end
 
   # GET /recipes/new
@@ -19,10 +20,14 @@ class RecipesController < ApplicationController
 
   def public
     @recipes = Recipe.where(public: true)
+    @user = User.first
   end
 
   # GET /recipes/1/edit
-  def edit; end
+  def edit
+    @user = User.first
+    @recipe = Recipe.find(params[:id])
+  end
 
   # POST /recipes or /recipes.json
   def create

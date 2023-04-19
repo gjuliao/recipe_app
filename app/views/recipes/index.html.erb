@@ -1,15 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Recipes</h1>
+<div class="container">
+  <h1 style="width: 70%" class="mx-auto">Recipes</h1>
 
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", user_recipe_path(@user, recipe) %>
-    </p>
-  <% end %>
+  <div class="mx-auto" id="recipes">
+    <div style="width: 70%" class="mx-auto mt-5">
+      <%= link_to "New recipe", new_user_recipe_path(@user) %>
+    </div>
+    <% @recipes.each do |recipe| %>
+      <%= render recipe %>
+    <% end %>
+  </div>
 </div>
 
-<%= link_to "New recipe" %>
-<p> Test </p> <%= @user %>
