@@ -20,9 +20,9 @@
             <h5 class="">Description: <%= @recipe.description %></h5>
         </div>
         <div class="d-flex justify-content-between mt-5">
-            <%= button_to "Shopping List", user_recipe_path(@user, @recipe), method: :delete, class: "btn btn-info" %>
+            <%= button_to "Shopping List", user_shoping_list_path(current_user), method: :get, class: "btn btn-info" %>
             <% if can? :edit, @recipe %>
-                <%= link_to "Add Ingredient", edit_user_recipe_path(@user, @recipe), class: "btn btn-primary" %>
+                <%= link_to "Add Ingredient",  new_user_recipe_recipe_food_path(@user, @recipe), class: "btn btn-primary" %>
             <% end %>
         </div>
         <% if can? :delete, @recipe %>

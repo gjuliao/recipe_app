@@ -61,7 +61,7 @@ class FoodsController < ApplicationController
   end
 
   def shoping_list
-    @shoping_list = Food.shoping_list
+    @shoping_list = Food.shoping_list(current_user)
   end
 
   private

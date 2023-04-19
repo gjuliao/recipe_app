@@ -7,8 +7,8 @@ class Food < ApplicationRecord
   validates :quantity, presence: true, numericality: true
   validates :user_id, presence: true
 
-  def self.shoping_list
-    current_food = Food.where(user_id: 1)
+  def self.shoping_list(user)
+    current_food = Food.where(user_id: user.id)
     shoping = {}
 
     recipe_food = RecipeFood.where(recipe_id: Recipe.where(public: true))
