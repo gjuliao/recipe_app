@@ -24,7 +24,10 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1/edit
-  def edit; end
+  def edit
+    @user = User.first
+    @recipe = Recipe.find(params[:id])
+  end
 
   # POST /recipes or /recipes.json
   def create
