@@ -1,4 +1,4 @@
-<%= form_with(url: edit_user_recipe_path(@user, @recipe)) do |form| %>
+<%= form_with(model: @recipe, url: user_recipes_path) do |form| %>
   <% if recipe.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -34,11 +34,6 @@
   <div>
     <%= form.label :public, style: "display: block" %>
     <%= form.check_box :public %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
   </div>
 
   <div>
