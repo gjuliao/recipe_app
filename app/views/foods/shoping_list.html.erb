@@ -1,6 +1,7 @@
 <h1>Shoping list</h1>
 <div>
+<p> Product </p><p> Quantity </p><p> Price </p>
   <% @shoping_list.each do |food| %>
-    <%= "#{food[0]} - #{food[1]}" %> <br>
+  <p><%= "#{food[0]}" %></p><p><%= "#{food[1]}" %></p><p><%= "#{(Food.find_by(name: food[0]).price) * food[1]}" %></p>
   <% end %>
 </div>
