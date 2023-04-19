@@ -1,10 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render 'show_recipe' %>
+<div class="container mt-5">
+  <%= render 'show_recipe' %>
 
-<div>
-  <%= link_to "Edit this recipe", edit_user_recipe_path(@user, @recipe) %> |
-  <%= link_to "Back to recipes", user_recipes_path(@user) %>
-
-  <%= button_to "Destroy this recipe", user_recipe_path(@user, @recipe), method: :delete %>
+  <div style="width: 25%" class="mx-auto mt-5">
+    <%= link_to "Edit this recipe", edit_user_recipe_path(@user, @recipe) %> |
+    <%= link_to "Back to recipes", user_recipes_path(@user) %>
+  </div>
 </div>
