@@ -6,7 +6,7 @@
             <% if can? :delete, @recipe %>
               <%= button_to "Destroy this recipe", user_recipe_path(@user, recipe), method: :delete, class: "btn btn-danger" %>
             <% end %>
-            <%= link_to "View this recipe", user_recipe_path(@user, recipe), class: "btn btn-primary" %>
+              <%= link_to "View this recipe", user_recipe_path(@user, recipe), class: "btn btn-primary" %>
           </div>
       </div>
       <div class="pt-4">

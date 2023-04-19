@@ -48,6 +48,7 @@ class RecipesController < ApplicationController
 
   # PATCH/PUT /recipes/1 or /recipes/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @recipe.update(recipe_params)
         format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
@@ -61,6 +62,9 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
+    @user = current_user
+    @recipe = Recipe.find(params[:id])
+    authorize! :destroy, @recipe
     @recipe.destroy
 
     respond_to do |format|
