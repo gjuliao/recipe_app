@@ -22,7 +22,6 @@ class RecipeFoodsController < ApplicationController
   def create
     @recipe_food = RecipeFood.new(recipe_food_params)
     @recipe_food.recipe = Recipe.find(params[:recipe_id])
-    binding.pry
 
     respond_to do |format|
       if @recipe_food.save
