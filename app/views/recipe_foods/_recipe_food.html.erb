@@ -1,17 +1,16 @@
 <div id="<%= dom_id recipe_food %>">
   <p>
-    <strong>Quantity:</strong>
-    <%= recipe_food.quantity %>
-  </p>
-
-  <p>
     <strong>Recipe:</strong>
-    <%= recipe_food.recipe_id %>
+    <%= Recipe.find_by(id: recipe_food.recipe_id).name %>
   </p>
 
   <p>
     <strong>Food:</strong>
-    <%= recipe_food.food_id %>
+    <%= Food.find_by(id: recipe_food.food_id).name  %>
   </p>
 
+  <p>
+    <strong>Quantity:</strong>
+    <%= recipe_food.quantity %>
+  </p>
 </div>

@@ -16,9 +16,10 @@
     <%= form.number_field :quantity %>
   </div>
 
+
   <div>
     <%= form.label :food_id, style: "display: block" %>
-    <%= form.text_field :food_id %>
+    <%= form.collection_select :food_id, Food.all, :id, :name %>
   </div>
 
   <div>
