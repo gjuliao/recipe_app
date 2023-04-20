@@ -7,4 +7,34 @@
     <%= link_to "Edit this recipe", edit_user_recipe_path(@user, @recipe) %> |
     <%= link_to "Back to recipes", user_recipes_path(@user) %>
   </div>
+
+  <div class="m-5">
+    <table class="table mx-auto text-center" style="width: 80%">
+      <thead>
+        <tr>
+          <th scope="col">Food</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+          <% if can? :delete, @recipe %>
+            <th scope="col">Actions</th>
+          <% end %>
+        </tr>
+      </thead>
+        <tbody>
+        <% RecipeFood.where(recipe_id: @recipe.id).each do |recipe_food| %>
+          <% food = Food.find_by(id: recipe_food.food_id) %>
+            <tr> 
+              <td><%= food.name %></td>
+              <td><%= recipe_food.quantity %></td>
+              <td><%= food.price %></td>
+              <td>
+              <% if can? :delete, @recipe %>
+                <%= button_to 'Delete', user_recipe_recipe_food_path(current_user, @recipe, recipe_food), method: :delete, class:'btn btn-danger' %>
+              <% end %>
+              </td>
+            </tr>
+        <% end %>
+          </tbody>
+      </table>
+    </div>
 </div>
