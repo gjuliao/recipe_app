@@ -12,7 +12,19 @@ require 'shoulda/matchers'
 # a separate helper file that requires the additional dependencies and performs
 # the additional setup, and require it from the spec files that actually need
 # it.
-#
+RSpec::Matchers.define :be_database_authenticatable do
+  match do |user|
+    user.class.devise_modules.include?(:database_authenticatable)
+  end
+
+  failure_message do |user|
+    "expected #{user.class.name} to be database authenticatable"
+  end
+
+  failure_message_when_negated do |user|
+    "expected #{user.class.name} not to be database authenticatable"
+  end
+end
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
