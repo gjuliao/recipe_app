@@ -1,8 +1,5 @@
-<%= render @food %>
+<%= render partial: 'foodsingle', locals: {food: @food}  %>
 
-<div>
-  <%= link_to "Edit this food", edit_user_food_path(@user, @food) %> |
-  <%= link_to "Back to foods", user_foods_path %>
-
-  <%= button_to "Destroy this food", user_food_path(@user, @food), method: :delete %>
+<div class='d-flex justify-content-center'>
+  <%= link_to "Back to foods", user_foods_path, class: 'btn btn-info'%>
 </div>

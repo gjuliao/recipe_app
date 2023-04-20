@@ -2,10 +2,10 @@
       <tr>
         <td><%= food.id %></td>
         <td><%= food.name %></td>
-        <td><%= food.measurement_unit %></td>
-        <td><%= food.price %></td>
         <td><%= food.quantity %></td>
+        <td><%= food.price %></td>
+        <td><%= food.measurement_unit %></td>
         <td><%= food.user.name %></td>
-        <td><%= link_to "Show this food", user_food_path(@user, food) %></td>
+        <td><%= link_to "Show this food", user_food_path(@user, food), class: 'btn btn-info' %></td>
       </tr>
 </div>
