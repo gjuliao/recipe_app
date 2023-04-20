@@ -20,21 +20,21 @@
           <% end %>
         </tr>
       </thead>
-        <tbody>
+      <tbody>
         <% RecipeFood.where(recipe_id: @recipe.id).each do |recipe_food| %>
           <% food = Food.find_by(id: recipe_food.food_id) %>
-            <tr> 
-              <td><%= food.name %></td>
-              <td><%= recipe_food.quantity %></td>
-              <td><%= food.price %></td>
-              <td>
-              <% if can? :delete, @recipe %>
-                <%= button_to 'Delete', user_recipe_recipe_food_path(current_user, @recipe, recipe_food), method: :delete, class:'btn btn-danger' %>
-              <% end %>
-              </td>
-            </tr>
+          <tr> 
+            <td><%= food.name %></td>
+            <td><%= recipe_food.quantity %></td>
+            <td><%= food.price %></td>
+            <td>
+            <% if can? :delete, @recipe %>
+              <%= button_to 'Delete', user_recipe_recipe_food_path(current_user, @recipe, recipe_food), method: :delete, class:'btn btn-danger' %>
+            <% end %>
+            </td>
+          </tr>
         <% end %>
-          </tbody>
+      </tbody>
       </table>
     </div>
 </div>
