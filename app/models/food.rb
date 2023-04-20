@@ -10,10 +10,9 @@ class Food < ApplicationRecord
   def self.shoping_list(user)
     current_food = Food.where(user_id: user.id)
     shoping = {}
-
-    recipe_food = RecipeFood.where(recipe_id: Recipe.where(public: true))
-    recipe_food.each do |food|
-      shoping[food.food.name] = (shoping[food.food.name] || 0) + food.quantity
+    foods = RecipeFood.includes(:recipe, :food).where(recipe: { public: true })
+    foods.each do |el|
+      shoping[el.food.name] = (shoping[el.food.name] || 0) + el.quantity
     end
 
     current_food.each do |food|

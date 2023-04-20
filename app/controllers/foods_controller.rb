@@ -4,7 +4,7 @@ class FoodsController < ApplicationController
   # GET /foods or /foods.json
   def index
     @user = User.find(current_user.id)
-    @foods = Food.where(user_id: current_user.id)
+    @foods = Food.includes(:user).where(user_id: current_user.id)
   end
 
   # GET /foods/1 or /foods/1.json

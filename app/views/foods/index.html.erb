@@ -1,15 +1,15 @@
-<h1>Foods</h1>
+<h1 class="text-center">Food</h1>
 
-<%= link_to "New food", new_user_food_path %>
+<%= link_to "Add food", new_user_food_path, class: 'btn btn-info m-4' %>
 <div id="foods">
   <table class="table">
   <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Measurement unit:</th>
-        <th scope="col">Price:</th>
         <th scope="col">Quantity:</th>
+        <th scope="col">Price:</th>
+        <th scope="col">Measurement unit:</th>
         <th scope="col">Owner:</th>
       </tr>
     </thead>
@@ -20,4 +20,3 @@
     </tbody>
   </table>
 </div>
-
