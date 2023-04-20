@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
   end
 
   def public
-    @recipes = Recipe.where(public: true)
+    @recipes = Recipe.where(public: true).order(created_at: :desc)
     @user = User.find(current_user.id)
   end
 
@@ -48,9 +48,11 @@ class RecipesController < ApplicationController
 
   # PATCH/PUT /recipes/1 or /recipes/1.json
   def update
+    @user = current_user
+    @recipe = Recipe.find(params[:id])
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
+        format.html { redirect_to user_recipe_path(current_user, @recipe), notice: 'Recipe was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,6 +63,9 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
+    @user = current_user
+    @recipe = Recipe.find(params[:id])
+    authorize! :destroy, @recipe
     @recipe.destroy
 
     respond_to do |format|

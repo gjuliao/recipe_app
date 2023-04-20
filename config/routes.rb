@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   root "recipes#public"
 
   resources :users do
-    resources :recipes
+    resources :recipes do
+      resources :recipe_foods
+    end
     get 'shoping-list', to: 'foods#shoping_list'
     resources :foods do
-      resources :recipe_foods
     end
   end
   

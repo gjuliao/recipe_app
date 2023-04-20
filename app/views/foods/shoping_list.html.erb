@@ -1,7 +1,15 @@
-<h1>Shoping list</h1>
-<div>
-<p> Product </p><p> Quantity </p><p> Price </p>
+<h1 class='text-center mt-5 mb-5'>Shoping list</h1>
+<div class="container text-center">
+<div class="row bg-secondary text-white">
+  <div class='col-sm'> Product </div>
+  <div class='col-sm'> Quantity </div>
+  <div class='col-sm'> Price </div>
+</div>
   <% @shoping_list.each do |food| %>
-  <p><%= "#{food[0]}" %></p><p><%= "#{food[1]}" %></p><p><%= "#{(Food.find_by(name: food[0]).price) * food[1]}" %></p>
+    <div class="row">
+      <div class='col-sm'><%= "#{food[0]}" %></div>
+      <div class='col-sm'><%= "#{food[1]}" %></div>
+      <div class='col-sm'><%= "#{(Food.find_by(name: food[0]).price) * food[1]}" %></div>
+    </div>
   <% end %>
 </div>
