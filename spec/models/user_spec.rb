@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   after(:all) do
-      User.delete_all
-      Recipe.delete_all
-      Food.delete_all
-      RecipeFood.delete_all
+    User.delete_all
+    Recipe.delete_all
+    Food.delete_all
+    RecipeFood.delete_all
   end
 
   let(:user) { User.create(name: 'John', email: 'john@gmail.com', password: '1231231') }
