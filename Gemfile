@@ -81,4 +81,3 @@ group :test do
 end
 
 gem 'bullet'
-
