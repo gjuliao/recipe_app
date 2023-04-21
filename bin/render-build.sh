@@ -1,10 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# exit on error
+set -o errexit
 
-# Precompile assets
-bundle exec rake assets:precompile RAILS_ENV=production
-
-# Migrate database
-bundle exec rake db:migrate RAILS_ENV=production
-
-# Restart application server
-touch tmp/restart.txt
+bundle install
+bundle exec rake assets:precompile
+bundle exec rake assets:clean
+bundle exec rake db:migrate
