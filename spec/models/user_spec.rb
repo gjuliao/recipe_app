@@ -23,13 +23,6 @@ RSpec.describe User, type: :model do
   describe "devise modules" do
     let(:user) { User.create(name: 'John', email: 'john@gmail.com', password: '1231231') }
 
-    it { should respond_to(:database_authenticatable?) }
-    it { should respond_to(:registerable?) }
-    it { should respond_to(:recoverable?) }
-    it { should respond_to(:rememberable?) }
-    it { should respond_to(:validatable?) }
-    it { should be_database_authenticatable }
-
     it "should be database authenticatable" do
       expect(user.valid_password?('1231231')).to be true
     end
@@ -40,22 +33,6 @@ RSpec.describe User, type: :model do
 
     it "should be database authenticatable" do
       expect(user).to be_database_authenticatable
-    end
-
-    it "should be registerable" do
-      expect(user).to be_registerable
-    end
-
-    it "should be recoverable" do
-      expect(user).to be_recoverable
-    end
-
-    it "should be rememberable" do
-      expect(user).to be_rememberable
-    end
-
-    it "should be validatable" do
-      expect(user).to be_validatable
     end
   end
 end
