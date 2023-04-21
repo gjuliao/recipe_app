@@ -12,10 +12,10 @@ RSpec.describe 'food/index.html.erb', type: :system do
 
   let(:recipe) do
     Recipe.create(name: 'Recipe Name', preparation_time: 30, cooking_time: 60,
-                  description: 'Recipe description', public: true, user: user)
+                  description: 'Recipe description', public: true, user:)
   end
 
-  let(:food) { Food.create(name: 'Eggs', user: user, quantity: 2, measurement_unit: 'grams', price: 10) }
+  let(:food) { Food.create(name: 'Eggs', user:, quantity: 2, measurement_unit: 'grams', price: 10) }
 
   it 'displays the list of foods' do
     sign_in

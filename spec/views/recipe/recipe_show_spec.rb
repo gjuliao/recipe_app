@@ -12,7 +12,7 @@ RSpec.describe 'recipes/show.html.erb', type: :system do
 
   let(:recipe) do
     Recipe.create(name: 'Recipe Name', preparation_time: 30, cooking_time: 60,
-                  description: 'Recipe description', public: true, user: user)
+                  description: 'Recipe description', public: true, user:)
   end
 
   it 'displays the recipe name' do
