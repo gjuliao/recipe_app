@@ -1,4 +1,4 @@
 <% @recipes.each do |recipe| %>
-<%= render recipe %>
+<%= render partial: 'recipepublic', locals: {recipe: recipe} %>
 
 <% end %>
