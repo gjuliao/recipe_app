@@ -1,41 +1,40 @@
 require 'rails_helper'
-require_relative 'actions_helper_recipe'
 
-RSpec.describe 'recipes/show.html.erb', type: :system do
-  include ActionsHelperRecipe
-  User.delete_all
-  Recipe.delete_all
-  Food.delete_all
-  RecipeFood.delete_all
+RSpec.describe 'recipes/show.html.erb', type: :feature do
+  include Warden::Test::Helpers
 
-  let(:user) { User.create(name: 'John', email: 'john@gmail.com', password: '1231231') }
+  before(:each) do
+    User.delete_all
+    Recipe.delete_all
+    Food.delete_all
+    RecipeFood.delete_all
+
+    @user = User.create!(name: 'Victor', email: 'victor@gmail.com', password: '123456')
+    login_as(@user, scope: :user)
+  end
 
   let(:recipe) do
     Recipe.create(name: 'Recipe Name', preparation_time: 30, cooking_time: 60,
-                  description: 'Recipe description', public: true, user:)
+                  description: 'Recipe description', public: true, user: @user)
   end
 
   it 'displays the recipe name' do
-    sign_up
-    visit user_recipe_path(user, recipe)
+    visit user_recipe_path(@user, recipe)
     expect(page).to have_content(recipe.name)
   end
 
   it 'displays the recipe description' do
-    sign_up
-    visit user_recipe_path(user, recipe)
+    visit user_recipe_path(@user, recipe)
     expect(page).to have_content(recipe.description)
   end
 
   it 'displays the recipe preparation time' do
-    sign_up
-    visit user_recipe_path(user, recipe)
+    visit user_recipe_path(@user, recipe)
     expect(page).to have_content(recipe.preparation_time)
   end
 
   it 'displays the list of recipe foods' do
-    sign_up
-    visit user_recipe_path(user, recipe)
+    visit user_recipe_path(@user, recipe)
     RecipeFood.where(recipe_id: recipe.id).each do |recipe_food|
       expect(page).to have_content(recipe_food.food.name)
       expect(page).to have_content(recipe_food.quantity)

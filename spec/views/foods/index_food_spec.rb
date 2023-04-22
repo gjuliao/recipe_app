@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative 'actions_helper_food'
 
 RSpec.describe 'food/index.html.erb', type: :feature do
   include Warden::Test::Helpers
