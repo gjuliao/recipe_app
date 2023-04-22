@@ -69,13 +69,12 @@ RSpec.describe Food, type: :model do
 
   describe '.shoping_list' do
     # let(:user1) { User.create(name: 'John') }
-    User.delete_all
-    Recipe.delete_all
-    Food.delete_all
-    RecipeFood.delete_all
-    user1 = User.create(name: 'John', email: 'john@gmail.com', password: '1231231')
-
     it 'returns a hash of food names and quantities' do
+      User.delete_all
+      Recipe.delete_all
+      Food.delete_all
+      RecipeFood.delete_all
+      user1 = User.create(name: 'John', email: 'john@gmail.com', password: '1231231')
       eggs = Food.create(name: 'Eggs', user: user1, quantity: 2, measurement_unit: 'grams', price: 10)
       bread = Food.create(name: 'Bread', user: user1, quantity: 5, measurement_unit: 'grams', price: 10)
       recipe1 = Recipe.create(name: 'Scrambled eggs', preparation_time: 5, cooking_time: 5, description: 'Very simple',

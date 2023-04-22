@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
   end
 
   def public
-    @recipes = Recipe.where(public: true).order(created_at: :desc)
+    @recipes = Recipe.includes([:user]).where(public: true).order(created_at: :desc)
     @user = User.find(current_user.id)
   end
 
