@@ -6,6 +6,7 @@
 - [📖 About the Project](#about-project)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+- [🚀 Live demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -46,6 +47,11 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Key Features <a name="key-features"></a>
+  
+  #### [Check out the live demo](https://recipe-app-qgr3.onrender.com)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -69,31 +75,38 @@ git clone git@github.com:gjuliao/recipe_app.git
 ```
 2. To access cloned directory run:
 ```bash
-cd curriculum 
+cd recipe_app
 ```
 
 ### Install
 
-> To install linters and other project's dependencies run:
+Install dependancies with:
 
 ```bash
- bundle install
+bundle install
 ```
 
 ### Usage
 
 To run the project, execute the following command:
+
 ```bash
-ruby main.rb
+rails s
 ```
 
 ### Run tests
 
-For tracking linter errors in Ruby files run:
- 
- ```
-   rubocop . 
- ```
+To run tests, run the following command:
+
+```sh
+rspec spec
+```
+
+### Deployment
+
+You can deploy this project using:
+
+- [Render](https://render.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
