@@ -1,0 +1,22 @@
+<h1 class="text-center">Food</h1>
+
+<%= link_to "Add food", new_user_food_path, class: 'btn btn-info m-4' %>
+<div id="foods">
+  <table class="table">
+  <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity:</th>
+        <th scope="col">Price:</th>
+        <th scope="col">Measurement unit:</th>
+        <th scope="col">Owner:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <%= render food %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+  <h1 style="width: 70%" class="mx-auto">Recipes</h1>
+
+  <div class="mx-auto" id="recipes">
+    <div style="width: 70%" class="mx-auto mt-5">
+      <%= link_to "New recipe", new_user_recipe_path(@user) %>
+    </div>
+    <% @recipes.each do |recipe| %>
+      <%= render recipe %>
+    <% end %>
+  </div>
+</div>
+

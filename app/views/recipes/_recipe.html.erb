@@ -1,0 +1,16 @@
+<div style="width: 70%" class="container mx-auto" id="<%= dom_id recipe %>">
+    <div class="row row-cols-2 mt-5">
+      <div>
+        <h5>Recipe #<%= recipe.id %>: <%= recipe.name %> </h5>
+          <div class="d-flex">
+              <%= link_to "View this recipe", user_recipe_path(@user, recipe), class: "btn btn-primary" %>
+            <% if can? :delete, recipe %>
+              <%= button_to "Destroy this recipe", user_recipe_path(@user, recipe), method: :delete, class: "btn btn-danger mx-1" %>
+            <% end %>
+          </div>
+      </div>
+      <div class="pt-4">
+        <p class=""><%= recipe.description %></p>
+      </div>
+  </div>
+</div>

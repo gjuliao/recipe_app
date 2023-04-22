@@ -1,0 +1,19 @@
+<div class="container mx-auto" id="<%= dom_id recipe %>">
+    <div class="row row-cols-2 mt-5">
+      <div class="mx-auto" style="width: 70%">
+          <%= link_to(user_recipe_path(@user, recipe), class:"text-decoration-none text-reset")  do  %>
+          <div class="d-flex justify-content-around">
+            <div>
+              <h4> <%= recipe.name %> </h4>
+              <p>By: <%= recipe.user.name %></p>
+            </div>
+            <div>
+              <p>Total Ingredients: <%= RecipeFood.includes([:recipe]).where(recipe: recipe).count %></p>
+              <p>Total Cost: <%= recipe.total_cost %></p>
+            </div>
+          </div>
+          <% end %>
+      </div>
+    
+  </div>
+</div>

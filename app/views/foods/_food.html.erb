@@ -1,0 +1,14 @@
+<div id="<%= dom_id food %>">
+      <tr>
+        <td><%= food.id %></td>
+        <td><%= food.name %></td>
+        <td><%= food.quantity %></td>
+        <td><%= food.price %></td>
+        <td><%= food.measurement_unit %></td>
+        <td><%= food.user.name %></td>
+        <td><%= link_to "Show this food", user_food_path(@user, food), class: 'btn btn-info' %></td>
+        <% if can? :delete, food %>
+          <td><%= button_to "Delete", user_food_path(@user, food),method: :delete, class: 'btn btn-danger' %></td>
+        <% end %>
+      </tr>
+</div>
