@@ -18,7 +18,7 @@ RSpec.describe 'food/index.html.erb', type: :system do
   let(:food) { Food.create(name: 'Eggs', user:, quantity: 2, measurement_unit: 'grams', price: 10) }
 
   it 'displays the list of foods' do
-    sign_in
+    sign_up
     visit user_foods_path(user)
     RecipeFood.where(recipe_id: food.id).each do |food|
       expect(page).to have_content(food.food.name)
